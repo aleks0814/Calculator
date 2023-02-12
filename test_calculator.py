@@ -88,5 +88,6 @@ class TestCalculator(unittest.TestCase):
         self.__calculations.to_the_power_of(3)
         self.assertEqual(self.__calculations.answer, 64)
 
+
 if __name__ == '__main__':
     unittest.main()
