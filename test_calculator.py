@@ -28,9 +28,9 @@ class TestCalculator(unittest.TestCase):
         self.__calculations.addition(55)
         self.assertEqual(self.__calculations.answer, 55)
         self.assertEqual(self.__calculations.last_number, [0])
-        self.__calculations.addition(5)
+        self.__calculations.addition(-500)
+        self.assertEqual(self.__calculations.answer, -445)
         self.assertEqual(self.__calculations.last_number, [0, 55])
-        self.assertEqual(self.__calculations.answer, 60)
 
     def test_substraction(self):
         self.__calculations.subtraction(7)

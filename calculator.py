@@ -78,13 +78,6 @@ def get_number(number):
             print("Only numbers for value")
 
 
-def format_number(num):
-    if num % 1 == 0:
-        return int(num)
-    else:
-        return num
-
-
 def helping_hand():
     help_me = [['add', '+', 'substract', '-'], ['multiply', '*', 'divide', '/'],
                ['to the 2 power', '^2', 'to the power of x', '^'], ['square root', '//'],
@@ -102,24 +95,17 @@ if __name__ == '__main__':
     helping_hand()
     while True:
         print(alpha.answer)
-        format_number(alpha.answer)
         if alpha.answer == 0:
             num = input('Enter your value:')
             value = get_number(num)
+            if value is None:
+                continue
             alpha.answer = value
             continue
-        operation = input('Choose mathematical operation sign + - * ^2 ^ / // :')
-        if operation not in ['+', '-', '*', '/', '//']:
-            if operation == 'b':
-                alpha.go_back()
-                continue
-            elif operation == 'c':
-                alpha.clear()
-                continue
-            elif operation == 'help':
-                helping_hand()
-                continue
-            elif operation == '^2':
+        operation = input('Choose operation sign +, -, *, ^2, ^, /, //2, \n'
+                          'c for clear, b to go back, h for help, exit to stop the program:')
+        if operation not in ['+', '-', '*', '/', ]:
+            if operation == '^2':
                 alpha.to_the_second_power()
                 continue
             elif operation == '^':
@@ -130,6 +116,17 @@ if __name__ == '__main__':
             elif operation == '//':
                 alpha.square_root_of_two()
                 continue
+            elif operation == 'b':
+                alpha.go_back()
+                continue
+            elif operation == 'c':
+                alpha.clear()
+                continue
+            elif operation == 'h':
+                helping_hand()
+                continue
+            elif operation == 'exit':
+                break
             print('Wrong operator')
             continue
 
